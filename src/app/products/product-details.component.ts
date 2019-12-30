@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { IProduct } from './product';
 
@@ -11,7 +11,8 @@ export class ProductDetailsComponent implements OnInit {
   pageTitle: string = "Product Details";
   product: IProduct;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     //+ js shortcut to convert parm to numeric id
@@ -30,5 +31,8 @@ export class ProductDetailsComponent implements OnInit {
     }
 
   }
-
+  onBack(): void{
+    this.router.navigate(['/products']);
+  }
 }
+
